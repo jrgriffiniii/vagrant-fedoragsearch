@@ -12,8 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "virtualbox/centos64"
-  config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
+  config.vm.box = "jrgriffiniii/fedoragsearch"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -23,7 +22,7 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 8080, host: 8083
+  config.vm.network "forwarded_port", guest: 8080, host: 8081
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -70,17 +69,17 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
-  config.librarian_puppet.puppetfile_dir = "puppet"
+#  config.librarian_puppet.puppetfile_dir = "puppet"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
   # the file default.pp in the manifests_path directory.
   #
-  config.vm.provision "puppet" do |puppet|
+#  config.vm.provision "puppet" do |puppet|
 
-    puppet.manifests_path = "puppet/manifests"
-    puppet.module_path = "puppet/modules"
-    puppet.hiera_config_path = "puppet/hiera.yaml"
-  end
+#    puppet.manifests_path = "puppet/manifests"
+#    puppet.module_path = "puppet/modules"
+#    puppet.hiera_config_path = "puppet/hiera.yaml"
+#  end
 end
